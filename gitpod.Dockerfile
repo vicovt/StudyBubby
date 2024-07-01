@@ -12,6 +12,9 @@ RUN mkdir -p /StudyBuddy/StudyBuddy-api/bin
 # Configuración de MySQL para aceptar conexiones remotas
 RUN sed -i 's/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
+# Crear un archivo de opciones seguro para MySQL
+RUN echo "[client]\nuser=root\npassword=\n" > /root/.my.cnf
+
 # Crear script para inicialización de MySQL
 RUN echo "#!/bin/bash\n\
 service mysql start\n\
