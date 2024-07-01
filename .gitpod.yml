@@ -1,5 +1,5 @@
 image:
-  file: gitpod.Dockerfile
+  file: .gitpod.Dockerfile
 
 ports:
   - port: 3306
@@ -26,4 +26,5 @@ vscode:
     - felixfbecker.php-intellisense
     - neilbrayfield.php-docblocker
     - formulahendry.auto-rename-tag
+
 

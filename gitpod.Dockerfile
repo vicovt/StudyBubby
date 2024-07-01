@@ -6,7 +6,7 @@ USER root
 RUN apt-get update && \
     apt-get install -y mysql-server
 
-# Configuración de MySQL
+# Configuración de MySQL para aceptar conexiones remotas
 RUN sed -i 's/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # Crear script para inicialización de MySQL
