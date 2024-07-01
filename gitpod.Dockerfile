@@ -12,6 +12,9 @@ RUN sed -i 's/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/m
 # Crear script para inicialización de MySQL
 RUN echo "#!/bin/bash\n\
 service mysql start\n\
+until mysqladmin ping &>/dev/null; do\n\
+  sleep 1\n\
+done\n\
 mysql -e \"CREATE DATABASE IF NOT EXISTS studybuddy_db;\"\n\
 mysql -e \"CREATE USER 'vicovt'@'%' IDENTIFIED BY 'vicky14';\"\n\
 mysql -e \"GRANT ALL PRIVILEGES ON studybuddy_db.* TO 'vicovt'@'%';\"\n\
@@ -25,8 +28,4 @@ EXPOSE 3306
 
 USER gitpod
 
-# Instalar extensiones de VSCode
-RUN code --install-extension bmewburn.vscode-intelephense-client \
-          --install-extension felixfbecker.php-intellisense \
-          --install-extension neilbrayfield.php-docblocker \
-          --install-extension formulahendry.auto-rename-tag
+
