@@ -15,10 +15,9 @@ tasks:
     init: |
       cd StudyBuddy-api
       composer install
-    command: |
-      php bin/console doctrine:database:create
-      php bin/console doctrine:migrations:migrate
-      php -S 0.0.0.0:8000 -t public
+    command: php -S 0.0.0.0:8000 -t public
+    env:
+      SYMFONY_PROJECT_DIR: "/workspace/StudyBuddy/StudyBuddy-api"
 
 vscode:
   extensions:
@@ -26,4 +25,5 @@ vscode:
     - felixfbecker.php-intellisense
     - neilbrayfield.php-docblocker
     - formulahendry.auto-rename-tag
+
 
