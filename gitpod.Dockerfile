@@ -19,9 +19,9 @@ mysql -e \"CREATE DATABASE IF NOT EXISTS studybuddy_db;\"\n\
 mysql -e \"CREATE USER 'vicovt'@'%' IDENTIFIED BY 'vicky14';\"\n\
 mysql -e \"GRANT ALL PRIVILEGES ON studybuddy_db.* TO 'vicovt'@'%';\"\n\
 mysql -e \"FLUSH PRIVILEGES;\"\n\
-tail -f /dev/null" > /StudyBuddy-api/bin/setup_mysql.sh
+tail -f /dev/null" > /StudyBuddy/StudyBuddy-api/bin/setup_mysql.sh
 
-RUN chmod +x /workspace/StudyBuddy/StudyBuddy-api/bin/setup_mysql.sh
+RUN chmod +x /StudyBuddy/StudyBuddy-api/bin/setup_mysql.sh
 
 # Exponer el puerto MySQL
 EXPOSE 3306
