@@ -21,7 +21,7 @@ mysql -e \"GRANT ALL PRIVILEGES ON studybuddy_db.* TO 'vicovt'@'%';\"\n\
 mysql -e \"FLUSH PRIVILEGES;\"\n\
 tail -f /dev/null" > /StudyBuddy-api/bin/setup_mysql.sh
 
-RUN chmod +x /StudyBuddy-api/bin/setup_mysql.sh
+RUN chmod +x /workspace/StudyBuddy/StudyBuddy-api/bin/setup_mysql.sh
 
 # Exponer el puerto MySQL
 EXPOSE 3306
