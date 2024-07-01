@@ -10,7 +10,7 @@ ports:
 tasks:
   - name: Setup MySQL
     init: |
-      sudo /StudyBuddy-api/bin/setup_mysql.sh
+      /StudyBuddy-api/bin/setup_mysql.sh
   - name: Setup Symfony
     init: |
       cd StudyBuddy-api
