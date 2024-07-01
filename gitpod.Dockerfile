@@ -4,7 +4,10 @@ USER root
 
 # Instalar MySQL
 RUN apt-get update && \
-    apt-get install -y mysql-server
+    apt-get install -y mysql-server mysql-client && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /StudyBuddy/StudyBuddy-api/bin
 
 # Configuración de MySQL para aceptar conexiones remotas
 RUN sed -i 's/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -27,5 +30,3 @@ RUN chmod +x /StudyBuddy/StudyBuddy-api/bin/setup_mysql.sh
 EXPOSE 3306
 
 USER gitpod
-
-
